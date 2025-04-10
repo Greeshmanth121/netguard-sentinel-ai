@@ -34,6 +34,10 @@ const Navbar = () => {
     navigate('/dashboard');
   };
 
+  const goToSignup = () => {
+    navigate('/signup');
+  };
+
   return (
     <nav className="sticky top-0 z-40 w-full backdrop-blur-lg bg-background/80 border-b border-border">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -48,9 +52,10 @@ const Navbar = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-center space-x-6">
+              <a href="/about" className="text-foreground/80 hover:text-secondary-500 transition-colors">About Us</a>
+              <a href="/pricing" className="text-foreground/80 hover:text-secondary-500 transition-colors">Pricing</a>
               <a href="/#features" className="text-foreground/80 hover:text-secondary-500 transition-colors">Features</a>
-              <a href="/#how-it-works" className="text-foreground/80 hover:text-secondary-500 transition-colors">How It Works</a>
-              <a href="/#pricing" className="text-foreground/80 hover:text-secondary-500 transition-colors">Pricing</a>
+              <a href="/contact" className="text-foreground/80 hover:text-secondary-500 transition-colors">Contact</a>
               
               {isLoggedIn ? (
                 <>
@@ -79,9 +84,9 @@ const Navbar = () => {
                   </Button>
                   <Button 
                     className="bg-secondary-500 text-white hover:bg-secondary-600"
-                    onClick={goToLogin}
+                    onClick={goToSignup}
                   >
-                    Get Started
+                    Sign Up
                   </Button>
                 </>
               )}
@@ -108,9 +113,10 @@ const Navbar = () => {
       {mobileMenuOpen && (
         <div className="md:hidden bg-background border-b border-border">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+            <a href="/about" className="block px-3 py-2 text-base font-medium text-foreground/80 hover:text-secondary-500 transition-colors">About Us</a>
+            <a href="/pricing" className="block px-3 py-2 text-base font-medium text-foreground/80 hover:text-secondary-500 transition-colors">Pricing</a>
             <a href="/#features" className="block px-3 py-2 text-base font-medium text-foreground/80 hover:text-secondary-500 transition-colors">Features</a>
-            <a href="/#how-it-works" className="block px-3 py-2 text-base font-medium text-foreground/80 hover:text-secondary-500 transition-colors">How It Works</a>
-            <a href="/#pricing" className="block px-3 py-2 text-base font-medium text-foreground/80 hover:text-secondary-500 transition-colors">Pricing</a>
+            <a href="/contact" className="block px-3 py-2 text-base font-medium text-foreground/80 hover:text-secondary-500 transition-colors">Contact</a>
             <div className="flex flex-col space-y-2 mt-4 px-3 py-2">
               {isLoggedIn ? (
                 <>
@@ -139,9 +145,9 @@ const Navbar = () => {
                   </Button>
                   <Button 
                     className="bg-secondary-500 text-white hover:bg-secondary-600"
-                    onClick={goToLogin}
+                    onClick={goToSignup}
                   >
-                    Get Started
+                    Sign Up
                   </Button>
                 </>
               )}
