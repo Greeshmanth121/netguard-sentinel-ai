@@ -1,13 +1,37 @@
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Menu, X, Shield } from 'lucide-react';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    // Check if user is logged in
+    const user = localStorage.getItem('user');
+    setIsLoggedIn(!!user);
+  }, [location]); // Re-check when location changes
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem('user');
+    setIsLoggedIn(false);
+    navigate('/');
+  };
+
+  const goToLogin = () => {
+    navigate('/login');
+  };
+
+  const goToDashboard = () => {
+    navigate('/dashboard');
   };
 
   return (
@@ -24,11 +48,43 @@ const Navbar = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-center space-x-6">
-              <a href="#features" className="text-foreground/80 hover:text-secondary-500 transition-colors">Features</a>
-              <a href="#how-it-works" className="text-foreground/80 hover:text-secondary-500 transition-colors">How It Works</a>
-              <a href="#pricing" className="text-foreground/80 hover:text-secondary-500 transition-colors">Pricing</a>
-              <Button variant="outline" className="border-secondary-500 text-secondary-500 hover:bg-secondary-500 hover:text-white transition-colors">Log In</Button>
-              <Button className="bg-secondary-500 text-white hover:bg-secondary-600">Get Started</Button>
+              <a href="/#features" className="text-foreground/80 hover:text-secondary-500 transition-colors">Features</a>
+              <a href="/#how-it-works" className="text-foreground/80 hover:text-secondary-500 transition-colors">How It Works</a>
+              <a href="/#pricing" className="text-foreground/80 hover:text-secondary-500 transition-colors">Pricing</a>
+              
+              {isLoggedIn ? (
+                <>
+                  <Button 
+                    variant="outline" 
+                    className="border-secondary-500 text-secondary-500 hover:bg-secondary-500 hover:text-white transition-colors"
+                    onClick={goToDashboard}
+                  >
+                    Dashboard
+                  </Button>
+                  <Button 
+                    className="bg-secondary-500 text-white hover:bg-secondary-600"
+                    onClick={handleLogout}
+                  >
+                    Logout
+                  </Button>
+                </>
+              ) : (
+                <>
+                  <Button 
+                    variant="outline" 
+                    className="border-secondary-500 text-secondary-500 hover:bg-secondary-500 hover:text-white transition-colors"
+                    onClick={goToLogin}
+                  >
+                    Log In
+                  </Button>
+                  <Button 
+                    className="bg-secondary-500 text-white hover:bg-secondary-600"
+                    onClick={goToLogin}
+                  >
+                    Get Started
+                  </Button>
+                </>
+              )}
             </div>
           </div>
           
@@ -52,12 +108,43 @@ const Navbar = () => {
       {mobileMenuOpen && (
         <div className="md:hidden bg-background border-b border-border">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            <a href="#features" className="block px-3 py-2 text-base font-medium text-foreground/80 hover:text-secondary-500 transition-colors">Features</a>
-            <a href="#how-it-works" className="block px-3 py-2 text-base font-medium text-foreground/80 hover:text-secondary-500 transition-colors">How It Works</a>
-            <a href="#pricing" className="block px-3 py-2 text-base font-medium text-foreground/80 hover:text-secondary-500 transition-colors">Pricing</a>
+            <a href="/#features" className="block px-3 py-2 text-base font-medium text-foreground/80 hover:text-secondary-500 transition-colors">Features</a>
+            <a href="/#how-it-works" className="block px-3 py-2 text-base font-medium text-foreground/80 hover:text-secondary-500 transition-colors">How It Works</a>
+            <a href="/#pricing" className="block px-3 py-2 text-base font-medium text-foreground/80 hover:text-secondary-500 transition-colors">Pricing</a>
             <div className="flex flex-col space-y-2 mt-4 px-3 py-2">
-              <Button variant="outline" className="border-secondary-500 text-secondary-500 hover:bg-secondary-500 hover:text-white transition-colors">Log In</Button>
-              <Button className="bg-secondary-500 text-white hover:bg-secondary-600">Get Started</Button>
+              {isLoggedIn ? (
+                <>
+                  <Button 
+                    variant="outline" 
+                    className="border-secondary-500 text-secondary-500 hover:bg-secondary-500 hover:text-white transition-colors"
+                    onClick={goToDashboard}
+                  >
+                    Dashboard
+                  </Button>
+                  <Button 
+                    className="bg-secondary-500 text-white hover:bg-secondary-600"
+                    onClick={handleLogout}
+                  >
+                    Logout
+                  </Button>
+                </>
+              ) : (
+                <>
+                  <Button 
+                    variant="outline" 
+                    className="border-secondary-500 text-secondary-500 hover:bg-secondary-500 hover:text-white transition-colors"
+                    onClick={goToLogin}
+                  >
+                    Log In
+                  </Button>
+                  <Button 
+                    className="bg-secondary-500 text-white hover:bg-secondary-600"
+                    onClick={goToLogin}
+                  >
+                    Get Started
+                  </Button>
+                </>
+              )}
             </div>
           </div>
         </div>
