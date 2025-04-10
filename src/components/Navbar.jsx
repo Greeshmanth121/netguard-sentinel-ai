@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import { Menu, X, Shield } from 'lucide-react';
+import { Menu, X, Shield, Mail } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
@@ -38,6 +38,10 @@ const Navbar = () => {
     navigate('/signup');
   };
 
+  const goToEmailDetection = () => {
+    navigate('/email-detection');
+  };
+
   return (
     <nav className="sticky top-0 z-40 w-full backdrop-blur-lg bg-background/80 border-b border-border">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -65,6 +69,14 @@ const Navbar = () => {
                     onClick={goToDashboard}
                   >
                     Dashboard
+                  </Button>
+                  <Button 
+                    variant="outline"
+                    className="border-secondary-500 text-secondary-500 hover:bg-secondary-500 hover:text-white transition-colors"
+                    onClick={goToEmailDetection}
+                  >
+                    <Mail className="h-4 w-4 mr-2" />
+                    Email Scanner
                   </Button>
                   <Button 
                     className="bg-secondary-500 text-white hover:bg-secondary-600"
@@ -126,6 +138,14 @@ const Navbar = () => {
                     onClick={goToDashboard}
                   >
                     Dashboard
+                  </Button>
+                  <Button 
+                    variant="outline"
+                    className="border-secondary-500 text-secondary-500 hover:bg-secondary-500 hover:text-white transition-colors"
+                    onClick={goToEmailDetection}
+                  >
+                    <Mail className="h-4 w-4 mr-2" />
+                    Email Scanner
                   </Button>
                   <Button 
                     className="bg-secondary-500 text-white hover:bg-secondary-600"
