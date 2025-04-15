@@ -11,6 +11,7 @@ import Signup from "./pages/Signup";
 import AboutUs from "./pages/AboutUs";
 import Contact from "./pages/Contact";
 import Pricing from "./pages/Pricing";
+import EmailDetection from "./pages/EmailDetection";
 import NotFound from "./pages/NotFound";
 
 const App = () => {
@@ -31,6 +32,7 @@ const App = () => {
             <Route path="/about" element={<AboutUs />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/pricing" element={<Pricing />} />
+            <Route path="/email-detection" element={<EmailDetection />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
