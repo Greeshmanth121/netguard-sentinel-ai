@@ -1,6 +1,6 @@
 
 import React from "react";
-import { Shield, Check, Award, Users, Code, BarChart, Lock } from "lucide-react";
+import { Shield, Check, Award, Users, Code, BarChart } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
@@ -38,17 +38,6 @@ const AboutUs = () => {
                 </p>
                 
                 <p className="mt-6">
-                  Our founders had witnessed firsthand the devastating impact of successful phishing attacks on organizations of all sizes. 
-                  These attacks weren't just causing financial damage—they were eroding trust and disrupting operations in critical sectors.
-                </p>
-                
-                <p className="mt-6">
-                  We set out to build a solution that could evolve as quickly as the threats, using advanced AI and machine learning to 
-                  stay one step ahead of attackers. Today, NetGuard is trusted by organizations worldwide to protect their teams 
-                  from even the most convincing phishing attempts.
-                </p>
-                
-                <p className="mt-6">
                   Our mission extends beyond just detection. We're committed to creating a safer digital environment through education, 
                   awareness, and powerful tools that empower people to navigate the web confidently.
                 </p>
@@ -62,25 +51,23 @@ const AboutUs = () => {
           <div className="container mx-auto px-4">
             <h2 className="text-3xl font-bold text-center mb-16 text-primary-500">Our Leadership Team</h2>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
               {/* Team Member 1 */}
               <div className="flex flex-col items-center text-center">
                 <div className="w-32 h-32 rounded-full bg-gradient-to-br from-primary-300 to-secondary-400 mb-4 flex items-center justify-center">
-                  <Users className="h-16 w-16 text-white" />
+                  <Code className="h-16 w-16 text-white" />
                 </div>
-                <h3 className="text-xl font-semibold">Dr. Sarah Chen</h3>
-                <p className="text-foreground/70 mb-2">CEO & AI Research Lead</p>
-                <p className="text-sm text-foreground/60">Former head of cybersecurity at Major Tech Inc., with 15+ years in AI and security research.</p>
+                <h3 className="text-xl font-semibold">Eshwar</h3>
+                <p className="text-foreground/70 mb-2">Backend Developer</p>
               </div>
               
               {/* Team Member 2 */}
               <div className="flex flex-col items-center text-center">
                 <div className="w-32 h-32 rounded-full bg-gradient-to-br from-primary-300 to-secondary-400 mb-4 flex items-center justify-center">
-                  <Code className="h-16 w-16 text-white" />
+                  <Users className="h-16 w-16 text-white" />
                 </div>
-                <h3 className="text-xl font-semibold">Michael Okonjo</h3>
-                <p className="text-foreground/70 mb-2">CTO & Co-founder</p>
-                <p className="text-sm text-foreground/60">Led engineering at several security startups and contributed to major open-source security projects.</p>
+                <h3 className="text-xl font-semibold">Arvapalli Greeshmanth</h3>
+                <p className="text-foreground/70 mb-2">Frontend Developer</p>
               </div>
               
               {/* Team Member 3 */}
@@ -88,9 +75,17 @@ const AboutUs = () => {
                 <div className="w-32 h-32 rounded-full bg-gradient-to-br from-primary-300 to-secondary-400 mb-4 flex items-center justify-center">
                   <BarChart className="h-16 w-16 text-white" />
                 </div>
-                <h3 className="text-xl font-semibold">Leila Martinez</h3>
-                <p className="text-foreground/70 mb-2">Head of Data Science</p>
-                <p className="text-sm text-foreground/60">Previously built fraud detection systems used by major financial institutions worldwide.</p>
+                <h3 className="text-xl font-semibold">Lalitha Sri Vidhya R</h3>
+                <p className="text-foreground/70 mb-2">UI/UX Designer</p>
+              </div>
+
+              {/* Team Member 4 */}
+              <div className="flex flex-col items-center text-center">
+                <div className="w-32 h-32 rounded-full bg-gradient-to-br from-primary-300 to-secondary-400 mb-4 flex items-center justify-center">
+                  <Award className="h-16 w-16 text-white" />
+                </div>
+                <h3 className="text-xl font-semibold">Sai AbhiRam</h3>
+                <p className="text-foreground/70 mb-2">Team Member</p>
               </div>
             </div>
           </div>
@@ -101,9 +96,9 @@ const AboutUs = () => {
           <div className="container mx-auto px-4">
             <h2 className="text-3xl font-bold text-center mb-16 text-primary-500">Our Core Values</h2>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-5xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-5xl mx-auto">
               <div className="bg-white p-6 rounded-lg shadow-md flex flex-col items-center text-center">
-                <Lock className="h-12 w-12 text-secondary-500 mb-4" />
+                <Shield className="h-12 w-12 text-secondary-500 mb-4" />
                 <h3 className="text-xl font-semibold mb-2">Security First</h3>
                 <p className="text-foreground/70">We prioritize protection and privacy in everything we build, maintaining the highest security standards.</p>
               </div>
